@@ -113,6 +113,12 @@ body {font-size:16px;}
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 
+/* accounts page */
+.title {
+  color: grey;
+  font-size: 18px;
+}
+  
 </style>
 </head>
 <body style="background:#87CEFA">
@@ -170,7 +176,7 @@ body {font-size:16px;}
         <input type="file" class="fileSubmit" id="myFile" name="filename">
       </div>
     
-      <input type="submit" class="btn" style="background:#006994;color:white"></button>
+      <input type="submit" class="btn" style="background:#006994;color:white;margin-top:10px"></button>
     </form>
     <h2 style="margin-top:30px">Recent Trips</h2>
   </div>
@@ -245,7 +251,7 @@ body {font-size:16px;}
 
   <!-- Login Popup (hidden at first) -->
   <div class="form-popup" id="login">
-    <form action="https://www.google.com" class="form-container">
+    <form action="openAccount()" class="form-container">
       <h1>Login</h1>
   
       <b>Email</b>
@@ -258,6 +264,32 @@ body {font-size:16px;}
       </form>
   </div>
 
+  <!-- Account Popup (activated by login) -->
+   <div class="form-popup" id="account">
+    <form onsubmit="closeForm()" class="form-container">
+      <h1>Login</h1>
+  
+      <b>Email</b>
+      <input type="text" pattern="+@gmail.com" placeholder="Enter Gmail" name="email" required>
+      <b>Password</b>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <button type="submit" class="loginButton" >Login</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Exit</button>
+      </form>
+  </div>
+  
+  <div class="form-popup" id="account" style="padding:30px">
+    <h3>Mira Plante</h3>
+    <h5 class="title">Boston, MA, USA</h5>
+    <table style="margin:auto">
+      <tr>
+      	<th>Point Count: </th>
+        <th id="pointNum">0</th>
+      </tr>
+     </table>
+  </div>
+
 <!-- End page content -->
 </div>
 
@@ -265,7 +297,7 @@ body {font-size:16px;}
 <div class="w3-blue w3-container w3-padding-16" style="margin-top:100px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
 
 
-  <!-- login page functionality -->
+  <!-- login/account page functionality -->
 <script type="text/javascript" src="login.js"></script>
   
 <!-- sidebar functionality -->
