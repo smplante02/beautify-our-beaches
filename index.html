@@ -47,6 +47,72 @@ body {font-size:16px;}
   opacity: 1;
 }
 
+  .open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #D7EFFD;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background: #D7EFFD;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .loginButton {
+  background-color: #006994;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background: #006994;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+
 </style>
 </head>
 <body style="background:#87CEFA">
@@ -61,19 +127,11 @@ body {font-size:16px;}
     <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
     <a href="#record" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Record a Trip</a> 
     <a href="#feed" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">See Other Trips</a> 
+    <a onclick="openForm()" class="w3-bar-item w3-button w3-hover-white">My Account</a>
   </div>
 
 
 </nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-blue w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-blue w3-margin-right" onclick="w3_open()">☰</a>
-  <span>Beautify Our Beaches</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
@@ -185,14 +243,34 @@ body {font-size:16px;}
   </div>
   </div>
 
+  <!-- Login Popup (hidden at first) -->
+  <div class="form-popup" id="login">
+    <form action="https://www.google.com" class="form-container">
+      <h1>Login</h1>
+  
+      <b>Email</b>
+      <input type="text" pattern="+@gmail.com" placeholder="Enter Gmail" name="email" required>
+      <b>Password</b>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <button type="submit" onclick="closeForm()" class="loginButton" >Login</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Exit</button>
+      </form>
+  </div>
+
 <!-- End page content -->
 </div>
 
 <!-- W3.CSS Container -->
-<div class="w3-blue w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+<div class="w3-blue w3-container w3-padding-16" style="margin-top:100px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
 
+
+  <!-- login page functionality -->
+<script type="text/javascript" src="login.js"></script>
+  
 <!-- sidebar functionality -->
 <script type="text/javascript" src="headerController.js"></script>
-  
+
+
 </body>
 </html>
